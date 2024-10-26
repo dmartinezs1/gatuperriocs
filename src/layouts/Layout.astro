@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<html>
+  <meta charset="UTF-8">
+  <title>Gatuperriocs - Inicio</title>
+  <link rel="stylesheet" href="/public/styles.css" />
+  </head>
+  <body style="margin: 0;">
+    <header style="padding: 20px; margin-top: 0;">
+		<div class="logo-container">
+			<Image 
+			  src="/public/logo.png" 
+			  alt="Logo" 
+			  width={150} 
+			  height={450} 
+			  loading='eager'
+			/>
+		  </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Quienes Somos</a>
+            <ul>
+              <li><a href="/#mision">Misión</a></li>
+              <li><a href="/#vision">Visión</a></li>
+            </ul>
+          </li>
+          <li><a href="/adopciones">Adopciones</a></li>
+          <li>
+            <a href="/donaciones">Donaciones</a>
+            <ul>
+              <li><a href="/donaciones#recibimos-donaciones">Recibimos donaciones de</a></li>
+              <li><a href="/donaciones#donamos-a">Donamos a</a></li>
+              <li><a href="/donaciones#quienes-donan">¿Quieres donar?</a></li>
+            </ul>
+          </li>
+          <li><a href="/profesionales_voluntarios">Profesionales Voluntarios</a></li>
+          <li><a href="/voluntarios">Voluntarios</a></li>
+        </ul>
+      </nav>
+    </header>
+		<slot/>
+    <footer>
+      <p>&copy; 2024 Gatuperriocs</p>
+    </footer>
+    <script>
+      document.querySelectorAll('nav ul li').forEach((li) => {
+        li.addEventListener('mouseenter', function() {
+          const dropdown = this.querySelector('ul');
+          if (dropdown) {
+            dropdown.style.display = 'block';
+          }
+        });
+        li.addEventListener('mouseleave', function() {
+          const dropdown = this.querySelector('ul');
+          if (dropdown) {
+            dropdown.style.display = 'none';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
